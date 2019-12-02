@@ -2,7 +2,7 @@
     "name": "vscode-phpstan",
     "displayName": "PhpStan static analysis",
     "description": "PHPStan support in VSCode",
-    "version": "0.2",
+    "version": "0.2.0",
     "publisher": "Mandy91",
     "engines": {
         "vscode": "^1.23.1"
