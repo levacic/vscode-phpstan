@@ -1,6 +1,7 @@
 [![](https://vsmarketplacebadge.apphb.com/version-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
 [![](https://vsmarketplacebadge.apphb.com/installs-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
 [![](https://vsmarketplacebadge.apphb.com/rating-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
+[![CircleCI](https://circleci.com/gh/Mandy91/vscode-phpstan.svg?style=svg)](https://circleci.com/gh/Mandy91/vscode-phpstan)
 
 <p align="center">
   <br />
