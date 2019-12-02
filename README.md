@@ -1,13 +1,17 @@
-[![](https://vsmarketplacebadge.apphb.com/version-short/calsmurf2904.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=calsmurf2904.vscode-phpstan)
-[![](https://vsmarketplacebadge.apphb.com/installs-short/calsmurf2904.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=calsmurf2904.vscode-phpstan)
-[![](https://vsmarketplacebadge.apphb.com/rating-short/calsmurf2904.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=calsmurf2904.vscode-phpstan)
+[![](https://vsmarketplacebadge.apphb.com/version-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
+[![](https://vsmarketplacebadge.apphb.com/installs-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
+[![](https://vsmarketplacebadge.apphb.com/rating-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
 
 <p align="center">
   <br />
   <img src="https://puu.sh/zkXAe/e727a924d6.png" alt="Image Sample 1" />
 </p>
 
-## What is this?
+## Note
+
+Because [calvinbaart/vscode-phpstan](https://github.com/calvinbaart/vscode-phpstan) seems not supported anymore, I have continued development through this fork
+
+## What is this
 
 [PHPStan](https://github.com/phpstan/phpstan) is a static analysis tool for PHP. This extension integrates the output of PHPStan in VSCode allowing the developer to find errors quicker.
 
@@ -40,7 +44,7 @@ PHPStan includes an explorer-context command called "PHPStan: Scan for Errors". 
 
 ## Configuration
 
-vscode-phpstan provides the following configuration properties and defaults:
+vscode-phpstan-extension provides the following configuration properties and defaults:
 
 ```json
 "phpstan.enabled": true,

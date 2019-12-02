@@ -1,9 +1,9 @@
 {
     "name": "vscode-phpstan",
-    "displayName": "vscode-phpstan",
+    "displayName": "PhpStan static analysis",
     "description": "PHPStan support in VSCode",
-    "version": "0.1.7",
-    "publisher": "Calsmurf2904",
+    "version": "0.2",
+    "publisher": "Mandy91",
     "engines": {
         "vscode": "^1.23.1"
     },
@@ -17,7 +17,7 @@
     ],
     "repository": {
         "type": "github",
-        "url": "https://github.com/calvinbaart/vscode-phpstan"
+        "url": "https://github.com/mandy91/vscode-phpstan"
     },
     "main": "./out/extension",
     "scripts": {

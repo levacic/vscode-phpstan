@@ -15,7 +15,7 @@ import {
     Uri,
     commands,
     Disposable,
-    DiagnosticSeverity
+    DiagnosticSeverity,
 } from "vscode";
 import * as glob from "glob";
 
@@ -57,14 +57,20 @@ export class PHPStan {
         this._numQueued = 0;
 
         this._command = commands.registerCommand("extension.scanForErrors", (file) => {
-            const path = file["fsPath"];
+            try {
+                const path = file["fsPath"];
 
-            if (fs.lstatSync(path).isDirectory()) {
-                this.scanDirectory(path);
-                return;
+                if (fs.lstatSync(path).isDirectory()) {
+                    this.scanDirectory(path);
+                    return;
+                }
+
+                this.scanPath(path);
+            } catch (exception) {
+                window.showErrorMessage("Something went wrong, please check the extension host log")
+                console.trace(exception)
             }
 
-            this.scanPath(path);
         });
 
         this.findBinaryPath();
@@ -78,8 +84,10 @@ export class PHPStan {
         const vendor = "vendor/bin/" + executableName;
         const paths = [];
 
-        for (const folder of workspace.workspaceFolders) {
-            paths.push(path.join(folder.uri.fsPath, vendor));
+        if (workspace && workspace.workspaceFolders) {
+            for (const folder of workspace.workspaceFolders) {
+                paths.push(path.join(folder.uri.fsPath, vendor));
+           }
         }
 
         if (process.env.COMPOSER_HOME !== undefined) {
@@ -463,7 +471,7 @@ export class PHPStan {
      * Determines the location of the PHPStan executable based on config and raw filesystem search
      */
     private findBinaryPath() {
-        if (this._binaryPath !== null && !fs.existsSync(this._binaryPath)) {
+        if (this._binaryPath && !fs.existsSync(this._binaryPath)) {
             window.showErrorMessage("[phpstan] Failed to find phpstan, the path " + this._binaryPath + " doesn't exist.");
 
             this._binaryPath = null;
