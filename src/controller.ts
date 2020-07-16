@@ -14,6 +14,7 @@ export class PHPStanController
         let subscriptions: Disposable[] = [];
         workspace.onDidSaveTextDocument(this._onDocumentEvent, this, subscriptions);
         workspace.onDidOpenTextDocument(this._onDocumentEvent, this, subscriptions);
+        workspace.onDidCloseTextDocument(this._onDocumentEvent, this, subscriptions);
         window.onDidChangeActiveTextEditor(this._onEditorEvent, this, subscriptions);
 
         // Get the current text editor

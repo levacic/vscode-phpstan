@@ -141,6 +141,29 @@ export class PHPStan {
             delete this._current[updatedDocument.fileName];
         }
 
+        // If the document was closed, cleanup everything related to it and stop
+        // further processing after updating the diagnostics. In effect, this
+        // limits the currently displayed diagnostics to those in currently open
+        // files. The reasoning behind this is to avoid cluttering the
+        // diagnostics while working on a codebase, and if the goal is to see
+        // all the errors across a codebase, it's easy to run PHPStan manually.
+        if (updatedDocument.isClosed) {
+            delete this._errors[updatedDocument.fileName];
+            delete this._documents[updatedDocument.fileName];
+
+            if (this._timeouts[updatedDocument.fileName] !== undefined) {
+                clearTimeout(this._timeouts[updatedDocument.fileName]);
+            }
+
+            let documents = Object.values(this._documents);
+            let errors = [].concat.apply([], Object.values(this._errors));
+
+            this.diagnosticCollection.clear();
+            handleDiagnosticErrors(documents, errors, this._diagnosticCollection);
+
+            return;
+        }
+
         let autoload = [];
         let project = [];
 
