@@ -1,12 +1,17 @@
-[![](https://vsmarketplacebadge.apphb.com/version-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
-[![](https://vsmarketplacebadge.apphb.com/installs-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
-[![](https://vsmarketplacebadge.apphb.com/rating-short/mandy91.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=mandy91.vscode-phpstan)
-[![CircleCI](https://circleci.com/gh/Mandy91/vscode-phpstan.svg?style=svg)](https://circleci.com/gh/Mandy91/vscode-phpstan)
+[![](https://vsmarketplacebadge.apphb.com/version-short/levacic.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=levacic.vscode-phpstan)
+[![](https://vsmarketplacebadge.apphb.com/installs-short/levacic.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=levacic.vscode-phpstan)
+[![](https://vsmarketplacebadge.apphb.com/rating-short/levacic.vscode-phpstan.svg)](https://marketplace.visualstudio.com/items?itemName=levacic.vscode-phpstan)
 
 <p align="center">
   <br />
   <img src="https://puu.sh/zkXAe/e727a924d6.png" alt="Image Sample 1" />
 </p>
+
+## Note
+
+This is a fork of [OhMyMndy/vscode-phpstan](https://github.com/OhMyMndy/vscode-phpstan) created in order to avoid forcing the analysis level if there is a `phpstan.neon` or `phpstan.neon.dist` file present - as in that case, we want to control everything through that file, including the analysis level.
+
+This is just a hack, there's a lot of other stuff not up-to-date here (e.g. dependencies), the lock file is not in sync with the main `package.json`, and I'm just gonna leave it like this for now because the hack solves my immediate problem of having to manually configure the extension for each individual project, rather than having the extension provide sane behavior by default.
 
 ## Note
 
