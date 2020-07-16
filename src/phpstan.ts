@@ -222,16 +222,27 @@ export class PHPStan {
             }
 
             this._numQueued--;
-            this._current[updatedDocument.fileName] = child_process.spawn(this._binaryPath, [
-                "analyse",
-                `--level=${this._config.level}`,
-                ...autoload,
-                ...project,
-                "--error-format=raw",
-                `--memory-limit=${this._config.memoryLimit}`,
-                ...this._config.options,
-                filePath
-            ], options);
+
+            if (project.length) {
+                this._current[updatedDocument.fileName] = child_process.spawn(this._binaryPath, [
+                    "analyse",
+                    ...project,
+                    "--error-format=raw",
+                    ...this._config.options,
+                    filePath
+                ], options);
+            } else {
+                this._current[updatedDocument.fileName] = child_process.spawn(this._binaryPath, [
+                    "analyse",
+                    `--level=${this._config.level}`,
+                    ...autoload,
+                    ...project,
+                    "--error-format=raw",
+                    `--memory-limit=${this._config.memoryLimit}`,
+                    ...this._config.options,
+                    filePath
+                ], options);
+            }
 
             let results: string = "";
             this._current[updatedDocument.fileName].stdout.on("data", (data) => {
