@@ -3,7 +3,7 @@
     "displayName": "PHPStan static analysis",
     "description": "PHPStan support in Visual Studio Code",
     "version": "0.1.0",
-    "publisher": "Milos Levacic",
+    "publisher": "levacic",
     "engines": {
         "vscode": "^1.23.1"
     },
